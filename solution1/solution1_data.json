@@ -83,15 +83,6 @@
       "polarity": "ACTIVE_LOW",
       "ctype": {"RST": {"Type": "bool"}}
     },
-    "counterOut_V": {
-      "type": "data",
-      "dir": "out",
-      "width": "64",
-      "ctype": {"DATA": {
-          "Type": "integer unsigned",
-          "Width": "64"
-        }}
-    },
     "polStreamOut_V_V": {
       "type": "axi4stream",
       "mode": "master",
@@ -114,7 +105,7 @@
       "mode": "slave",
       "port_prefix": "s_axi_config",
       "param_prefix": "C_S_AXI_CONFIG",
-      "addr_bits": "6",
+      "addr_bits": "5",
       "registers": [
         {
           "offset": "0x10",
@@ -170,76 +161,6 @@
               "description": "Reserved.  0s on read."
             }
           ]
-        },
-        {
-          "offset": "0x1c",
-          "name": "counterIn_V_1",
-          "access": "W",
-          "reset_value": "0x0",
-          "description": "Data signal of counterIn_V",
-          "fields": [{
-              "offset": "0",
-              "width": "32",
-              "name": "counterIn_V",
-              "access": "W",
-              "reset_value": "0",
-              "description": "Bit 31 to 0 Data signal of counterIn_V"
-            }]
-        },
-        {
-          "offset": "0x20",
-          "name": "counterIn_V_2",
-          "access": "W",
-          "reset_value": "0x0",
-          "description": "Data signal of counterIn_V",
-          "fields": [{
-              "offset": "0",
-              "width": "32",
-              "name": "counterIn_V",
-              "access": "W",
-              "reset_value": "0",
-              "description": "Bit 63 to 32 Data signal of counterIn_V"
-            }]
-        },
-        {
-          "offset": "0x28",
-          "name": "status_V",
-          "access": "R",
-          "reset_value": "0x0",
-          "description": "Data signal of status_V",
-          "fields": [{
-              "offset": "0",
-              "width": "32",
-              "name": "status_V",
-              "access": "R",
-              "reset_value": "0",
-              "description": "Bit 31 to 0 Data signal of status_V"
-            }]
-        },
-        {
-          "offset": "0x2c",
-          "name": "status_V_ctrl",
-          "access": "R",
-          "reset_value": "0x0",
-          "description": "Control signal of status_V",
-          "fields": [
-            {
-              "offset": "0",
-              "width": "1",
-              "name": "status_V_ap_vld",
-              "access": "R",
-              "reset_value": "0",
-              "description": "Control signal status_V_ap_vld"
-            },
-            {
-              "offset": "1",
-              "width": "31",
-              "name": "RESERVED",
-              "access": "R",
-              "reset_value": "0",
-              "description": "Reserved.  0s on read."
-            }
-          ]
         }
       ],
       "memories": "",
@@ -264,11 +185,11 @@
         },
         "AWADDR": {
           "Type": "integer unsigned",
-          "Width": "6"
+          "Width": "5"
         },
         "WDATA": {
           "Type": "integer unsigned",
-          "Width": "32"
+          "Width": "64"
         },
         "WSTRB": {
           "Type": "integer unsigned",
@@ -276,17 +197,17 @@
         },
         "ARADDR": {
           "Type": "integer unsigned",
-          "Width": "6"
+          "Width": "5"
         },
         "RDATA": {
           "Type": "integer unsigned",
-          "Width": "32"
+          "Width": "64"
         }
       },
       "data_width": "32",
       "port_width": {
-        "ARADDR": "6",
-        "AWADDR": "6",
+        "ARADDR": "5",
+        "AWADDR": "5",
         "RDATA": "32",
         "WDATA": "32",
         "WSTRB": "4"
@@ -349,7 +270,7 @@
     },
     "s_axi_config_AWADDR": {
       "dir": "in",
-      "width": "6"
+      "width": "5"
     },
     "s_axi_config_WVALID": {
       "dir": "in",
@@ -377,7 +298,7 @@
     },
     "s_axi_config_ARADDR": {
       "dir": "in",
-      "width": "6"
+      "width": "5"
     },
     "s_axi_config_RVALID": {
       "dir": "out",
@@ -428,14 +349,6 @@
       "width": "1"
     },
     "ap_ready": {
-      "dir": "out",
-      "width": "1"
-    },
-    "counterOut_V": {
-      "dir": "out",
-      "width": "64"
-    },
-    "counterOut_V_ap_vld": {
       "dir": "out",
       "width": "1"
     },
@@ -497,33 +410,9 @@
       "handshakeRef": "ap_vld",
       "Object": "config"
     },
-    "counterIn_V": {
-      "interfaceRef": "s_axi_config",
-      "dir": "in",
-      "offset": "28",
-      "statusOffset": "NA",
-      "handshakeRef": "ap_none",
-      "Object": "config"
-    },
-    "status_V": {
-      "interfaceRef": "s_axi_config",
-      "dir": "out",
-      "offset": "40",
-      "statusOffset": "44",
-      "handshakeRef": "ap_vld",
-      "Object": "config",
-      "firstOutLatency": "0"
-    },
     "ap_ctrl": {
       "interfaceRef": "ap_ctrl",
       "dir": "out"
-    },
-    "counterOut_V": {
-      "interfaceRef": "counterOut_V",
-      "dir": "out",
-      "dataWidth": "64",
-      "handshakeRef": "ap_vld",
-      "firstOutLatency": "0"
     },
     "xStreamOut_V_V": {
       "interfaceRef": "xStreamOut_V_V",
@@ -560,19 +449,19 @@
         "Timing": {
           "Target": "10.00",
           "Uncertainty": "1.25",
-          "Estimate": "1.00"
+          "Estimate": "0.00"
         },
         "Area": {
           "BRAM_18K": "0",
-          "FF": "501",
-          "LUT": "599",
+          "FF": "391",
+          "LUT": "403",
           "DSP48E": "0"
         }
       }}
   },
   "GenData": {
     "DataVersion": "0.1",
-    "Time": "2020-04-18 11:25:05 +0200",
+    "Time": "2020-04-18 14:47:56 +0200",
     "ToolName": "vivado_hls",
     "ToolVersion": "2018.1"
   }

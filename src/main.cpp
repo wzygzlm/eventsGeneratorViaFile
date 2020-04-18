@@ -13,7 +13,8 @@
 #define POLARITY_X_ADDR_MASK (1023 << POLARITY_X_ADDR_SHIFT) // 10 bits from bits 12 to 21
 
 void eventsGeneratorViaFile(
-		ap_uint<64> input, ap_uint<64> counterIn, ap_uint<32> *status, ap_uint<64> *counterOut,
+		ap_uint<64> input,
+//		ap_uint<64> counterIn, ap_uint<32> *status, ap_uint<64> *counterOut,
 		hls::stream< ap_uint<16> > &xStreamOut,
 		hls::stream< ap_uint<16> > &yStreamOut,
 		hls::stream< ap_uint<64> > &tsStreamOut,
@@ -22,8 +23,8 @@ void eventsGeneratorViaFile(
 {
 #pragma HLS INTERFACE ap_vld port=input
 #pragma HLS INTERFACE s_axilite port=input bundle=config
-#pragma HLS INTERFACE s_axilite port=status bundle=config
-#pragma HLS INTERFACE s_axilite port=counterIn bundle=config
+//#pragma HLS INTERFACE s_axilite port=status bundle=config
+//#pragma HLS INTERFACE s_axilite port=counterIn bundle=config
 
 #pragma HLS INTERFACE axis register both port=tsStreamOut
 #pragma HLS INTERFACE axis register both port=polStreamOut
@@ -48,6 +49,6 @@ void eventsGeneratorViaFile(
 	polStreamOut << pol;
 
 	retStatus = 1;
-	*counterOut = counterIn;
-	*status = retStatus; // Indicate that data has been sent out.
+//	*counterOut = counterIn;
+//	*status = retStatus; // Indicate that data has been sent out.
 }
