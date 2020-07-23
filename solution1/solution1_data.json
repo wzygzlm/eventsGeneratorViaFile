@@ -65,7 +65,7 @@
     "ap_clk": {
       "type": "clock",
       "ctype": {"CLK": {"Type": "bool"}},
-      "buses": "s_axi_config xStreamOut_V_V yStreamOut_V_V tsStreamOut_V_V polStreamOut_V_V",
+      "buses": "s_axi_config xStreamOut_V_V yStreamOut_V_V tsStreamOut_V_V polStreamOut_V_V custDataStreamOut_V_V",
       "reset": "ap_rst_n"
     },
     "ap_ctrl": {
@@ -82,6 +82,22 @@
       "type": "reset",
       "polarity": "ACTIVE_LOW",
       "ctype": {"RST": {"Type": "bool"}}
+    },
+    "custDataStreamOut_V_V": {
+      "type": "axi4stream",
+      "mode": "master",
+      "port_prefix": "custDataStreamOut_V_V",
+      "has_tready": "1",
+      "ctype": {
+        "TDATA": {
+          "Type": "integer unsigned",
+          "Width": "10",
+          "Bits": "16"
+        },
+        "TVALID": {"Type": "bool"},
+        "TREADY": {"Type": "bool"}
+      },
+      "port_width": {"TDATA": "16"}
     },
     "polStreamOut_V_V": {
       "type": "axi4stream",
@@ -399,6 +415,18 @@
     "polStreamOut_V_V_TREADY": {
       "dir": "in",
       "width": "1"
+    },
+    "custDataStreamOut_V_V_TDATA": {
+      "dir": "out",
+      "width": "16"
+    },
+    "custDataStreamOut_V_V_TVALID": {
+      "dir": "out",
+      "width": "1"
+    },
+    "custDataStreamOut_V_V_TREADY": {
+      "dir": "in",
+      "width": "1"
     }
   },
   "CPorts": {
@@ -433,6 +461,11 @@
       "interfaceRef": "polStreamOut_V_V",
       "dir": "out",
       "firstOutLatency": "0"
+    },
+    "custDataStreamOut_V_V": {
+      "interfaceRef": "custDataStreamOut_V_V",
+      "dir": "out",
+      "firstOutLatency": "0"
     }
   },
   "ModuleInfo": {
@@ -453,15 +486,15 @@
         },
         "Area": {
           "BRAM_18K": "0",
-          "FF": "391",
-          "LUT": "403",
+          "FF": "427",
+          "LUT": "448",
           "DSP48E": "0"
         }
       }}
   },
   "GenData": {
     "DataVersion": "0.1",
-    "Time": "2020-04-18 14:47:56 +0200",
+    "Time": "2020-04-18 19:39:01 +0200",
     "ToolName": "vivado_hls",
     "ToolVersion": "2018.1"
   }

@@ -5,6 +5,7 @@
 #include "hls_stream.h"
 #include "ap_axi_sdata.h"
 
+#define CUST_DATA_MASK 0x3ff
 #define POLARITY_SHIFT 11
 #define POLARITY_MASK (1 << POLARITY_SHIFT)  // 1 bit at bit 11
 #define POLARITY_Y_ADDR_SHIFT 22
@@ -18,7 +19,8 @@ void eventsGeneratorViaFile(
 		hls::stream< ap_uint<16> > &xStreamOut,
 		hls::stream< ap_uint<16> > &yStreamOut,
 		hls::stream< ap_uint<64> > &tsStreamOut,
-		hls::stream< ap_uint<1> > &polStreamOut
+		hls::stream< ap_uint<1> > &polStreamOut,
+		hls::stream< ap_uint<10> > &custDataStreamOut
 )
 {
 #pragma HLS INTERFACE ap_vld port=input
@@ -26,6 +28,7 @@ void eventsGeneratorViaFile(
 //#pragma HLS INTERFACE s_axilite port=status bundle=config
 //#pragma HLS INTERFACE s_axilite port=counterIn bundle=config
 
+#pragma HLS INTERFACE axis register both port=custDataStreamOut
 #pragma HLS INTERFACE axis register both port=tsStreamOut
 #pragma HLS INTERFACE axis register both port=polStreamOut
 #pragma HLS INTERFACE axis register both port=yStreamOut
@@ -33,6 +36,7 @@ void eventsGeneratorViaFile(
 
 	ap_uint<16> x, y;
 	ap_uint<1> pol;
+	ap_uint<10> custData;
 	ap_uint<64> ts;
 	ap_uint<32> retStatus = 0;
 
@@ -41,12 +45,14 @@ void eventsGeneratorViaFile(
 	x = ((data) & POLARITY_X_ADDR_MASK) >> POLARITY_X_ADDR_SHIFT;
 	y = ((data) & POLARITY_Y_ADDR_MASK) >> POLARITY_Y_ADDR_SHIFT;
 	pol  = ((data) & POLARITY_MASK) >> POLARITY_SHIFT;
+	custData = data & CUST_DATA_MASK;
 	ts = data >> 32;
 
 	xStreamOut << x;
 	yStreamOut << y;
 	tsStreamOut << ts;
 	polStreamOut << pol;
+	custDataStreamOut << custData;
 
 	retStatus = 1;
 //	*counterOut = counterIn;

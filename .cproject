@@ -25,7 +25,6 @@
 								<option id="gnu.cpp.compiler.exe.debug.option.optimization.level.206617147" name="Optimization Level" superClass="gnu.cpp.compiler.exe.debug.option.optimization.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.optimization.level.none" valueType="enumerated"/>
 								<option id="gnu.cpp.compiler.exe.debug.option.debugging.level.924558799" name="Debug Level" superClass="gnu.cpp.compiler.exe.debug.option.debugging.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.debugging.level.max" valueType="enumerated"/>
 								<option id="gnu.cpp.compiler.option.include.paths.115843487" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
-									<listOptionValue builtIn="false" value="E:/xfOpenCV/hls_2018_1"/>
 									<listOptionValue builtIn="false" value="D:/Xilinx/Vivado/2018.1/include"/>
 									<listOptionValue builtIn="false" value="D:/Xilinx/Vivado/2018.1/win64/tools/systemc/include"/>
 									<listOptionValue builtIn="false" value="D:/Xilinx/Vivado/2018.1/include/ap_sysc"/>
@@ -43,7 +42,6 @@
 								<option defaultValue="gnu.c.optimization.level.none" id="gnu.c.compiler.exe.debug.option.optimization.level.1801699212" name="Optimization Level" superClass="gnu.c.compiler.exe.debug.option.optimization.level" useByScannerDiscovery="false" valueType="enumerated"/>
 								<option id="gnu.c.compiler.exe.debug.option.debugging.level.870185404" name="Debug Level" superClass="gnu.c.compiler.exe.debug.option.debugging.level" useByScannerDiscovery="false" value="gnu.c.debugging.level.max" valueType="enumerated"/>
 								<option id="gnu.c.compiler.option.include.paths.388548370" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
-									<listOptionValue builtIn="false" value="E:/xfOpenCV/hls_2018_1"/>
 									<listOptionValue builtIn="false" value="D:/Xilinx/Vivado/2018.1/include"/>
 									<listOptionValue builtIn="false" value="D:/Xilinx/Vivado/2018.1/win64/tools/systemc/include"/>
 									<listOptionValue builtIn="false" value="D:/Xilinx/Vivado/2018.1/include/ap_sysc"/>
@@ -111,7 +109,6 @@
 								<option id="gnu.cpp.compiler.exe.release.option.optimization.level.1638402330" name="Optimization Level" superClass="gnu.cpp.compiler.exe.release.option.optimization.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.optimization.level.most" valueType="enumerated"/>
 								<option id="gnu.cpp.compiler.exe.release.option.debugging.level.835493548" name="Debug Level" superClass="gnu.cpp.compiler.exe.release.option.debugging.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.debugging.level.none" valueType="enumerated"/>
 								<option id="gnu.cpp.compiler.option.include.paths.584759189" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
-									<listOptionValue builtIn="false" value="E:/xfOpenCV/hls_2018_1"/>
 									<listOptionValue builtIn="false" value="D:/Xilinx/Vivado/2018.1/include"/>
 									<listOptionValue builtIn="false" value="D:/Xilinx/Vivado/2018.1/win64/tools/systemc/include"/>
 									<listOptionValue builtIn="false" value="D:/Xilinx/Vivado/2018.1/include/ap_sysc"/>
@@ -124,7 +121,6 @@
 								<option defaultValue="gnu.c.optimization.level.most" id="gnu.c.compiler.exe.release.option.optimization.level.849516426" name="Optimization Level" superClass="gnu.c.compiler.exe.release.option.optimization.level" useByScannerDiscovery="false" valueType="enumerated"/>
 								<option id="gnu.c.compiler.exe.release.option.debugging.level.742801008" name="Debug Level" superClass="gnu.c.compiler.exe.release.option.debugging.level" useByScannerDiscovery="false" value="gnu.c.debugging.level.none" valueType="enumerated"/>
 								<option id="gnu.c.compiler.option.include.paths.1443845793" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
-									<listOptionValue builtIn="false" value="E:/xfOpenCV/hls_2018_1"/>
 									<listOptionValue builtIn="false" value="D:/Xilinx/Vivado/2018.1/include"/>
 									<listOptionValue builtIn="false" value="D:/Xilinx/Vivado/2018.1/win64/tools/systemc/include"/>
 									<listOptionValue builtIn="false" value="D:/Xilinx/Vivado/2018.1/include/ap_sysc"/>
