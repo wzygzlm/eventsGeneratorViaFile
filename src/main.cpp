@@ -5,7 +5,7 @@
 #include "hls_stream.h"
 #include "ap_axi_sdata.h"
 
-#define CUST_DATA_MASK 0x3ff
+#define CUST_DATA_MASK 0x7ff
 #define POLARITY_SHIFT 11
 #define POLARITY_MASK (1 << POLARITY_SHIFT)  // 1 bit at bit 11
 #define POLARITY_Y_ADDR_SHIFT 22
@@ -20,7 +20,7 @@ void eventsGeneratorViaFile(
 		hls::stream< ap_uint<16> > &yStreamOut,
 		hls::stream< ap_uint<64> > &tsStreamOut,
 		hls::stream< ap_uint<1> > &polStreamOut,
-		hls::stream< ap_uint<10> > &custDataStreamOut
+		hls::stream< ap_uint<16> > &custDataStreamOut
 )
 {
 #pragma HLS INTERFACE ap_vld port=input
@@ -36,7 +36,7 @@ void eventsGeneratorViaFile(
 
 	ap_uint<16> x, y;
 	ap_uint<1> pol;
-	ap_uint<10> custData;
+	ap_uint<16> custData;
 	ap_uint<64> ts;
 	ap_uint<32> retStatus = 0;
 

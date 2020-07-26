@@ -1,14 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="com.autoesl.autopilot.project" name="eventsGeneratorViaFile" top="eventsGeneratorViaFile">
-  <files>
-    <file name="eventsGeneratorViaFile/src/main.cpp" sc="0" tb="false" cflags=""/>
-  </files>
-  <solutions>
-    <solution name="solution1" status="active"/>
-  </solutions>
-  <includePaths/>
-  <libraryPaths/>
-  <Simulation>
-    <SimFlow name="csim"/>
-  </Simulation>
+    <includePaths/>
+    <libraryPaths/>
+    <Simulation>
+        <SimFlow name="csim"/>
+    </Simulation>
+    <files xmlns="">
+        <file name="eventsGeneratorViaFile/src/main.cpp" sc="0" tb="false" cflags=""/>
+    </files>
+    <solutions xmlns="">
+        <solution name="solution1" status="active"/>
+    </solutions>
 </project>
+

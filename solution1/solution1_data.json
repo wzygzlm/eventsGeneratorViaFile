@@ -91,8 +91,7 @@
       "ctype": {
         "TDATA": {
           "Type": "integer unsigned",
-          "Width": "10",
-          "Bits": "16"
+          "Width": "16"
         },
         "TVALID": {"Type": "bool"},
         "TREADY": {"Type": "bool"}
@@ -494,7 +493,7 @@
   },
   "GenData": {
     "DataVersion": "0.1",
-    "Time": "2020-04-18 19:39:01 +0200",
+    "Time": "2020-07-23 21:58:42 +0200",
     "ToolName": "vivado_hls",
     "ToolVersion": "2018.1"
   }
